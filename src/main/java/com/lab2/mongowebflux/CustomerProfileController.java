@@ -1,5 +1,4 @@
 package com.lab2.mongowebflux;
-import com.lab2.mongowebflux.entity.AddressNameDTO;
 import com.lab2.mongowebflux.entity.CustomerProfile;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
@@ -27,15 +26,15 @@ public class CustomerProfileController {
         return customerProfileService.getCustomerProfileWithLimit(limit);
     }
 
-    @GetMapping("getCustomerProfileWithMounteBank")
-    public Flux<Object[]> getCustomerProfileWithMounteBank(){
-
-       return webClient
+    @GetMapping("/getRandomParagraphWithMounteBank")
+    public Mono<String> getCustomerProfileWithMounteBank(){
+        return webClient
                 .get()
-                .uri("/getDocument")
-                .retrieve( )
-                .bodyToFlux(Object[].class) ;
-
+                .uri("")
+                .accept(MediaType.ALL)
+                .retrieve()
+                .bodyToMono(String.class)
+                ;
 //        return addressNameDTOFlux();
     }
 

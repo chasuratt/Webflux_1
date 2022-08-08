@@ -14,9 +14,6 @@ public class WebfluxConfig implements WebFluxConfigurer {
     @Bean
     public WebClient getWebClient()
     {
-
-
-
         return WebClient.builder()
                 .baseUrl("http://localhost:4545")
                 .build();
